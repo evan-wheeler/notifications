@@ -1,0 +1,206 @@
+
+$warn_bg: #ffba17;
+$warn_hl: #df8100;
+$warn_accent: #ffba17;
+$warn_btnHL: #fffcf4;
+$warn_btn: #fff;
+$warn_caption: #fff;
+$warn_text: #fff;
+
+$success_bg: #0e925a;
+$success_hl: #0b824f;
+$success_accent: #0b824f;
+$success_btnHL: #d0ffeb;
+$success_btn: #fff;
+$success_caption: #fff;
+$success_text: #fff;
+
+$info_bg: #00b8f4;
+$info_hl: #0093b0;
+$info_accent: #0093b0;
+$info_btnHL: #d0f5fe;
+$info_btn: #fff;
+$info_caption: #fff;
+$info_text: #fff;
+
+$err_bg: #B00;
+$err_hl: #900;
+$err_accent: #B00;
+$err_btnHL: #FAA;
+$err_btn: #fff;
+$err_caption: #FFF;
+$err_text: #fff;
+
+.notifications {
+    position:fixed;
+    top:1px;
+    left:50%;
+    height:0px;
+    overflow:visible;
+    z-index:1000;
+}
+
+.notification {
+    position:relative;
+    margin:0 0 8px -160px;
+    box-shadow:0px 1px 8px rgba(0,0,0,.4);
+    width:320px;
+    border-width:1px;
+    border-style:solid;
+    cursor:default;
+    transition: box-shadow 500ms;
+    overflow:hidden;
+
+    h3 {
+        margin:0 0 4px 0;
+        font-size:13px;
+    }
+
+    > i {
+        position:absolute;
+        font-size:1.8em;
+        left:12px;
+        top:10px;
+    }
+
+    > .notif__content {
+        margin:10px 10px 10px 45px;
+    }
+    
+    > .notif__timebar {
+        position:absolute;
+        bottom:0px;
+        height:4px;
+        background-color:rgba(0,0,0,.1);
+        box-shadow:0px 1px 2px rgba(0,0,0,.2) inset;
+        width:320px;
+        left:0px; 
+        overflow:hidden;
+
+        > div {
+            transition:width 2000ms linear;
+            background-color:rgba(0,0,0,.2);
+            width:100%;
+            position:absolute;
+            height:3px;
+            top:1px;
+        }
+    }
+
+    border-radius:3px;
+}
+
+.notification_dismissable {
+    cursor:pointer;
+}
+
+.notification__dismiss_btn {
+    margin:0; 
+    padding:0;
+    border:none;
+
+    box-sizing:border-box;
+    display:inline-block;
+    position:absolute;
+
+    font-size:13px;
+
+    right:4px;
+    top:4px;
+    width:15px;
+    height:15px;
+    line-height:13px;
+    border-radius:15px;
+
+    text-align:center;
+    vertical-align:middle;
+
+    cursor:default;
+}
+
+@mixin notif_colors( $bkgrnd, $border, $top, $title, $text, $btn, $btnHL ) {
+    background-color:$bkgrnd;
+    border-color:$border;
+    border-top-color:$top;
+    color: $text;
+
+    h3 {
+        color: $title;
+        font-size:15px;
+        font-weight:bold;
+        opacity:inherit;
+    }
+
+    .notification__counter {
+        color: $text;
+        background:none;
+        padding-left:5px;
+        font-size:10px;
+        font-weight:normal;
+    }
+
+    .notification__dismiss_btn {
+        background:none;
+        color: $btn;
+        opacity:inherit;
+    }
+    .notification__dismiss_btn:hover {
+        color: $btnHL;
+    }
+    .notification__dismiss_btn:active {
+        color: $btn;
+    }
+}
+
+.notification.success {
+    @include notif_colors( $success_bg, $success_hl, $success_accent, $success_caption, $success_text, $success_btn, $success_btnHL );
+}
+
+.notification.info {
+    @include notif_colors( $info_bg, $info_hl, $info_accent, $info_caption, $info_text, $info_btn, $info_btnHL );
+}
+
+.notification.warning {
+    @include notif_colors( $warn_bg, $warn_hl, $warn_accent, $warn_caption, $warn_text, $warn_btn, $warn_btnHL )
+}
+
+.notification.error {
+    @include notif_colors( $err_bg, $err_hl, $err_accent, $err_caption, $err_text, $err_btn, $err_btnHL );
+}
+
+
+@mixin notifFocus {
+    box-shadow:0px 1px 8px rgba(0,0,0,.2);
+}
+
+.notification:hover {
+    @include notifFocus;
+}
+
+.notification-enter {
+    opacity:.2;
+    max-height:1px;
+    top:-100px;
+}
+.notification-enter.notification-enter-active {
+    opacity:.9;
+    max-height:90px;
+    top:0px;
+    transition: opacity 300ms, max-height 300ms, padding 300ms, top 300ms;
+}
+
+$leaveTime: 300ms;
+
+.notification-leave {
+    opacity:.9;
+    max-height:90px; 
+    margin-bottom:8px;
+}
+.notification-leave.notification-leave-active {
+    opacity:0;
+    max-height:0;
+    margin-bottom:0;
+    overflow:hidden;
+    transition: opacity $leaveTime, max-height $leaveTime, padding $leaveTime, margin $leaveTime;
+}
+
