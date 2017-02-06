@@ -1,0 +1,230 @@
+.notifications {
+  position: fixed;
+  top: 1px;
+  left: 50%;
+  height: 0px;
+  overflow: visible;
+  z-index: 1000;
+}
+
+.notification {
+  position: relative;
+  margin: 0 0 8px -160px;
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.4);
+  width: 320px;
+  border-width: 1px;
+  border-style: solid;
+  cursor: default;
+  transition: box-shadow 500ms;
+  overflow: hidden;
+  border-radius: 3px;
+}
+.notification h3 {
+  margin: 0 0 4px 0;
+  font-size: 13px;
+}
+.notification > i {
+  position: absolute;
+  font-size: 1.8em;
+  left: 12px;
+  top: 10px;
+}
+.notification > .notif__content {
+  margin: 10px 10px 10px 45px;
+}
+.notification > .notif__timebar {
+  position: absolute;
+  bottom: 0px;
+  height: 4px;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2) inset;
+  width: 320px;
+  left: 0px;
+  overflow: hidden;
+}
+.notification > .notif__timebar > div {
+  transition: width 2000ms linear;
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100%;
+  position: absolute;
+  height: 3px;
+  top: 1px;
+}
+
+.notification_dismissable {
+  cursor: pointer;
+}
+
+.notification__dismiss_btn {
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  display: inline-block;
+  position: absolute;
+  font-size: 13px;
+  right: 4px;
+  top: 4px;
+  width: 15px;
+  height: 15px;
+  line-height: 13px;
+  border-radius: 15px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: default;
+}
+
+.notification.success {
+  background-color: #0e925a;
+  border-color: #0b824f;
+  border-top-color: #0b824f;
+  color: #fff;
+}
+.notification.success h3 {
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  opacity: inherit;
+}
+.notification.success .notification__counter {
+  color: #fff;
+  background: none;
+  padding-left: 5px;
+  font-size: 10px;
+  font-weight: normal;
+}
+.notification.success .notification__dismiss_btn {
+  background: none;
+  color: #fff;
+  opacity: inherit;
+}
+.notification.success .notification__dismiss_btn:hover {
+  color: #d0ffeb;
+}
+.notification.success .notification__dismiss_btn:active {
+  color: #fff;
+}
+
+.notification.info {
+  background-color: #00b8f4;
+  border-color: #0093b0;
+  border-top-color: #0093b0;
+  color: #fff;
+}
+.notification.info h3 {
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  opacity: inherit;
+}
+.notification.info .notification__counter {
+  color: #fff;
+  background: none;
+  padding-left: 5px;
+  font-size: 10px;
+  font-weight: normal;
+}
+.notification.info .notification__dismiss_btn {
+  background: none;
+  color: #fff;
+  opacity: inherit;
+}
+.notification.info .notification__dismiss_btn:hover {
+  color: #d0f5fe;
+}
+.notification.info .notification__dismiss_btn:active {
+  color: #fff;
+}
+
+.notification.warning {
+  background-color: #ffba17;
+  border-color: #df8100;
+  border-top-color: #ffba17;
+  color: #fff;
+}
+.notification.warning h3 {
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  opacity: inherit;
+}
+.notification.warning .notification__counter {
+  color: #fff;
+  background: none;
+  padding-left: 5px;
+  font-size: 10px;
+  font-weight: normal;
+}
+.notification.warning .notification__dismiss_btn {
+  background: none;
+  color: #fff;
+  opacity: inherit;
+}
+.notification.warning .notification__dismiss_btn:hover {
+  color: #fffcf4;
+}
+.notification.warning .notification__dismiss_btn:active {
+  color: #fff;
+}
+
+.notification.error {
+  background-color: #B00;
+  border-color: #900;
+  border-top-color: #B00;
+  color: #fff;
+}
+.notification.error h3 {
+  color: #FFF;
+  font-size: 15px;
+  font-weight: bold;
+  opacity: inherit;
+}
+.notification.error .notification__counter {
+  color: #fff;
+  background: none;
+  padding-left: 5px;
+  font-size: 10px;
+  font-weight: normal;
+}
+.notification.error .notification__dismiss_btn {
+  background: none;
+  color: #fff;
+  opacity: inherit;
+}
+.notification.error .notification__dismiss_btn:hover {
+  color: #FAA;
+}
+.notification.error .notification__dismiss_btn:active {
+  color: #fff;
+}
+
+.notification:hover {
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.2);
+}
+
+.notification-enter {
+  opacity: .2;
+  max-height: 1px;
+  top: -100px;
+}
+
+.notification-enter.notification-enter-active {
+  opacity: .9;
+  max-height: 90px;
+  top: 0px;
+  transition: opacity 300ms, max-height 300ms, padding 300ms, top 300ms;
+}
+
+.notification-leave {
+  opacity: .9;
+  max-height: 90px;
+  margin-bottom: 8px;
+}
+
+.notification-leave.notification-leave-active {
+  opacity: 0;
+  max-height: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+  transition: opacity 300ms, max-height 300ms, padding 300ms, margin 300ms;
+}

@@ -1,0 +1,42 @@
+{
+  "name": "notifications",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-addons-css-transition-group": "^15.4.1",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.1",
+    "redux": "^3.6.0",
+    "redux-saga": "^0.14.2"
+  },
+  "scripts": {
+    "clean": "rimraf dist lib"
+  },
+  "files": [
+    "dist",
+    "lib",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evan-wheeler/notifications.git"
+  },
+  "keywords": [
+    "redux",
+    "react",
+    "redux-saga",
+    "notification",
+    "toast"
+  ],
+  "author": "Evan Wheeler (https://github.com/evan-wheeler)",
+  "devDependencies": {
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "main": "index.js",
+  "license": "MIT"
+}
