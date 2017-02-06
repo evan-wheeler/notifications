@@ -37,6 +37,6 @@
       "react-app"
     ]
   },
-  "main": "index.js",
+  "main": "lib/index.js",
   "license": "MIT"
 }
