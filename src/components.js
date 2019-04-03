@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { notifyDismiss, notifyPause, notifyResume, NAME } from './ducks';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import ReactCSSTransitionGroup from 'react-transition-group';
 
 const Notif = ({ msg, onDismiss, onPause, onResume }) => {
     const { duration,
