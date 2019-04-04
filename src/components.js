@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { notifyDismiss, notifyPause, notifyResume, NAME } from './ducks';
-import ReactCSSTransitionGroup from 'react-transition-group';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 const Notif = ({ msg, onDismiss, onPause, onResume }) => {
     const { duration,
@@ -50,13 +50,16 @@ const Notif = ({ msg, onDismiss, onPause, onResume }) => {
 
 function renderItems(items, onDismiss, onPause, onResume) {
     const notifProps = { onDismiss, onPause, onResume };
+    const notifs = items.map( msg => ( 
+        <CSSTransition classNames="notification" timeout={{ enter:300, exit:300 } }>
+            <Notif key={msg.id} msg={msg} {...notifProps} /> 
+        </CSSTransition>
+    ) );
+    
     return (
-        <ReactCSSTransitionGroup
-            transitionName="notification"
-            transitionEnterTimeout={300}
-            transitionLeaveTimeout={300}>{
-                items.map(msg => <Notif key={msg.id} msg={msg} {...notifProps} />)
-            }</ReactCSSTransitionGroup>
+        <TransitionGroup>
+            {notifs}
+        </TransitionGroup>
     );
 }
 

@@ -191,12 +191,12 @@ $err_text: #fff;
 
 $leaveTime: 300ms;
 
-.notification-leave {
+.notification-exit {
     opacity:.9;
     max-height:90px; 
     margin-bottom:8px;
 }
-.notification-leave.notification-leave-active {
+.notification-exit.notification-exit-active {
     opacity:0;
     max-height:0;
     margin-bottom:0;
