@@ -1,5 +1,4 @@
-import { put, take, call, race, takeEvery, select } from 'redux-saga/effects';
-import { delay } from 'redux-saga';
+import { delay, put, take, call, race, takeEvery, select } from 'redux-saga/effects';
 
 export const NAME = 'notifications';
 
